@@ -1,11 +1,11 @@
 <?php
-    include "CLASSES/THREAD/thread.php";
-    $thread_list = Thread::create_thread_list();
+    include "CLASSES/ALBUM/album.php";
+    $album_list = Album::create_album_list();
 ?>
 
-<h3 class="my-4">Threads</h3>
+<h3 class="my-4">Albums </h3>
 <?php
-  foreach($thread_list as $thread){
-    $thread->display_thread();
+  foreach($album_list as $album){
+    $album->display_album();
   }
 ?>
