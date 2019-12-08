@@ -1,8 +1,8 @@
 <div class="container">
 
   <form method = "post" action = "DOMAINLOGIC/createpost.dom.php">
-    <input type="hidden" name="threadID" id="threadID" value="<?php echo $_GET["threadID"] ?>" required>
-    <input type="hidden" name="threadTitle" id="threadTitle" value="<?php echo $_GET["threadTitle"] ?>" required>
+    <input type="hidden" name="albumID" id="albumID" value="<?php echo $_GET["albumID"] ?>" required>
+    <input type="hidden" name="albumTitle" id="albumTitle" value="<?php echo $_GET["albumTitle"] ?>" required>
 
     <div class="form-group">
             <textarea class="form-control" rows="5" name="content" id="content" placeholder="Got something to say, punk?" required></textarea>

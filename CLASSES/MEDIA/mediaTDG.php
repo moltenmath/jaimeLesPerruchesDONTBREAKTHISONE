@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . "/../utilities/connector.php";
+include_once __DIR__ . "/../../UTILS/connector.php";
 
 class mediaTDG extends DBAO{
 
@@ -49,6 +49,27 @@ class mediaTDG extends DBAO{
         try{
             $conn = $this->connect();
             $query = "SELECT * FROM " . $this->tableName;
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+        }
+
+        catch(PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+            return false;
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $result;
+    }
+
+    public function get_by_albumID($albumID){
+
+        try{
+            $conn = $this->connect();
+            $query = "SELECT * FROM " . $this->tableName . " WHERE albumID = " . $albumID;
             $stmt = $conn->prepare($query);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);

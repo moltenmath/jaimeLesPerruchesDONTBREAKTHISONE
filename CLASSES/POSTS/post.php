@@ -60,7 +60,7 @@
         //QOL
         public function add_post($authorID, $threadID, $content){
             $TDG = new PostTDG();
-            $res = $TDG->add_post($authorID, $author, $threadID, $content);
+            $res = $TDG->add_post($authorID, $authorID, $threadID, $content);
             $TDG = null;
             return $res;
         }

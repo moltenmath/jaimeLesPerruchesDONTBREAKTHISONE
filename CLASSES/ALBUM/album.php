@@ -1,16 +1,16 @@
 <?php
 
 include_once __DIR__ . "/albumTDG.php";
-include_once __DIR__ . "/../POSTS/post.php";
+include_once __DIR__ . "/../MEDIA/media.php";
 
 class Album{
 
     private $id;
     private $title;
-    private $posts;
+    private $medias;
 
     public function __construct(){
-      $this->posts = array();
+      $this->medias = array();
     }
 
     //getters
@@ -22,8 +22,8 @@ class Album{
         return $this->title;
     }
 
-    public function get_posts(){
-        return $this->posts;
+    public function get_medias(){
+        return $this->medias;
     }
 
 
@@ -36,8 +36,8 @@ class Album{
         $this->title = $title;
     }
 
-    public function set_posts($posts){
-        $this->posts = $posts;
+    public function set_medias($medias){
+        $this->medias = $medias;
     }
 
 
@@ -95,33 +95,33 @@ class Album{
     }
 
     /*
-    Post related functions
+    media related functions
     */
-    public function load_posts(){
-        $res = Post::create_post_list($this->id);
+    public function load_media(){
+        $res = Media::create_media_list($this->id);
 
         if(!$res)
         {
             return false;
         }
 
-        $this->posts = $res;
+        $this->medias = $res;
     }
 
-    public function display_posts(){
-        if(empty($this->posts)){
-            $this->load_posts();
+    public function display_medias(){
+        if(empty($this->media)){
+            $this->load_media();
         }
 
-        if(empty($this->posts))
+        if(empty($this->medias))
         {
-            echo "<h3 class='mb-4'>No Post found in this album</h3>";
+            echo "<h3 class='mb-4'>No media found in this album</h3>";
         }
         else{
 
-            foreach($this->posts as $posts => $post){
-                $post->display();
-              }
+            foreach($this->medias as $medias => $media){
+                $media->display();
+            }
         }
     }
 

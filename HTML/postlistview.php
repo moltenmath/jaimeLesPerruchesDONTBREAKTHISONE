@@ -1,11 +1,11 @@
 <?php
-    include "CLASSES/THREAD/thread.php";
-    $thread = new Thread();
-    $thread->load_thread_by_id($_GET["threadID"]);
-    $thread->load_posts();
+    include "CLASSES/ALBUM/album.php";
+    $album = new Album();
+    $album->load_album_by_id($_GET["albumID"]);
+    $album->load_media();
 
 ?>
 
-<h3 class="mb-4"><?php echo $_GET["threadTitle"]; ?></h3>
+<h3 class="mb-4"><?php echo $_GET["albumTitle"]; ?></h3>
 
-<?php $thread->display_posts(); ?>
+<?php $album->display_album(); ?>

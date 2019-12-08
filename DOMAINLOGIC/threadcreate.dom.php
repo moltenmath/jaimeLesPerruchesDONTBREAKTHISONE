@@ -24,7 +24,7 @@
 
     $album->load_album_by_title($title);
     $albumID = $album->get_id();
-    header("Location: ../displaythread.php?threadID=$albumID&threadTitle=$title");
+    header("Location: ../displayalbum.php?threadID=$albumID&threadTitle=$title");
     die();
 
 ?>

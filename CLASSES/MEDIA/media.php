@@ -40,12 +40,8 @@ class Media
 
 
 
-    public function __construct($id, $type, $URL, $title)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->type = $type;
-        $this->URL = $URL;
-        $this->title = $title;
     }
 
     public function display()
@@ -57,10 +53,10 @@ class Media
         include __DIR__ . "/../Templates/mediaTemplate.php";
     }
 
-    public static function create_entry($type, $url, $title)
+    public static function create_entry($type, $url, $title, $albumID, $authorID)
     {
         $TDG = mediaTDG::get_instance();
-        $res = $TDG->add_media($type, $url, $title);
+        $res = $TDG->add_media($type, $url, $title, $albumID, $authorID);
         return $res;
     }
 
@@ -100,5 +96,28 @@ class Media
             array_push($obj_arr, $temp_m);
         }
         return $obj_arr;
+    }
+
+    public static function create_media_list($albumID){
+
+        $TDG = mediaTDG::get_instance();
+
+        $info_array=$TDG->get_by_albumID($albumID);
+        $media_list = array();
+
+        foreach($info_array as $ia){
+
+            $res = User::get_username_by_ID($ia["authorID"]);
+            $temp_media = new Media();
+            $temp_media->set_id($ia["id"]);
+            $temp_media->set_title($ia["title"]);
+            $temp_media->set_authorID($ia["authorID"]);
+            $temp_media->set_albumID($ia["threadID"]);
+            $temp_media->set_URL($ia["URL"]);
+            
+            array_push($media_list, $temp_media);
+        }
+
+        return $media_list;
     }
 }

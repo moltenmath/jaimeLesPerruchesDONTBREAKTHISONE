@@ -1,6 +1,7 @@
 <div class="Container">
     <h4><?php echo $title?></h4>
-    <?php 
+    <?php         
+        //get's the file extension to distinguish between video and images
         $ext = pathinfo($url ,PATHINFO_EXTENSION);
 
         if($type == "image"){
