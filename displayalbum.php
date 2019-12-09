@@ -1,16 +1,23 @@
 <?php
-  session_start();
-  
-  if(!isset($_GET["albumTitle"])){
+include_once __DIR__ . "./CLASSES/MEDIA/media.php";
+
+session_start();
+
+
+
+if (!isset($_GET["albumTitle"])) {
     header("Location: error.php?ErrorMSG=Bad%20Request!");
     die();
-  }
+}
 
-  $title=$_GET["albumTitle"];
+$title = $_GET["albumTitle"];
 
-  $content = array();
-  array_push($content, "postlistview.php");
-  array_push($content, "postcreateview.php");
+$_SESSION["lastVisitedAlbumID"] = $_GET["albumID"];
 
-  require_once __DIR__ . "/HTML/masterpage.php";
-?>
+$content = array();
+array_push($content, "medialistview.php");
+
+array_push($content, "postcreateview.php");
+
+require_once __DIR__ . "/HTML/masterpage.php";
+

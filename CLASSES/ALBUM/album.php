@@ -89,7 +89,7 @@ class Album{
         $id = $this->id;
   
         echo "<div class='card bg-dark mb-4'>";
-        echo "<div class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title'><h5>$title</h5></a>";
+        echo "<div style='color:white' class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title'><h5>$title</h5></a>";
         echo "</div>";
         echo "</div>";
     }

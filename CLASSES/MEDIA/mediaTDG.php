@@ -7,7 +7,7 @@ class mediaTDG extends DBAO{
     private $tableName;
     private static $instance = null;
 
-    private function __construct(){
+    function __construct(){
         Parent::__construct();
         $this->tableName = "media";
     }
@@ -48,7 +48,7 @@ class mediaTDG extends DBAO{
 
         try{
             $conn = $this->connect();
-            $query = "SELECT * FROM " . $this->tableName;
+            $query = "SELECT * FROM media";
             $stmt = $conn->prepare($query);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);

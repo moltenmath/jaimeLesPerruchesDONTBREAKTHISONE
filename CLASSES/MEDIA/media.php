@@ -1,6 +1,8 @@
 <?php
 
 include_once __DIR__ . "/mediaTDG.php";
+include_once __DIR__ . "/../USER/user.php";
+include_once __DIR__ . "/../USER/userTDG.php";
 
 class Media
 {
@@ -50,7 +52,8 @@ class Media
         $type = $this->type;
         $url = $this->URL;
         $title = $this->title;
-        include __DIR__ . "/../Templates/mediaTemplate.php";
+        $authorID = $this->authorID;
+        include __DIR__ . "/../../Templates/mediaTemplate.php";
     }
 
     public static function create_entry($type, $url, $title, $albumID, $authorID)
@@ -72,7 +75,7 @@ class Media
         $this->set_type($res["type"]);
         $this->set_title($res["title"]);
         $this->set_authorID($res["authorID"]);
-        $this->set_albumID($res["threadID"]);
+        $this->set_albumID($res["albumID"]);
         $this->set_URL($res["URL"]);
 
         return $res;
@@ -110,14 +113,25 @@ class Media
             $res = User::get_username_by_ID($ia["authorID"]);
             $temp_media = new Media();
             $temp_media->set_id($ia["id"]);
+            $temp_media->set_type($ia["type"]);
             $temp_media->set_title($ia["title"]);
             $temp_media->set_authorID($ia["authorID"]);
-            $temp_media->set_albumID($ia["threadID"]);
+            $temp_media->set_albumID($ia["albumID"]);
             $temp_media->set_URL($ia["URL"]);
             
             array_push($media_list, $temp_media);
         }
 
         return $media_list;
+    }
+
+    public function get_username_by_media_ID($mediaID)
+    {
+        $media = new Media();
+
+        $tempRes = $media->load_media_by_id($mediaID);
+       
+        
+        $res = User::get_username_by_ID($tempRes["authorID"]);
     }
 }

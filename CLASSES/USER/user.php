@@ -7,7 +7,7 @@ class User{
     private $email;
     private $username;
     private $password;
-    private $PP_ID;
+    private $PP_URL;
 
     /*
         utile si on utilise un factory pattern
@@ -39,7 +39,7 @@ class User{
     }
     
     public function get_PP_URL(){
-        return $this->PP_ID;
+        return $this->PP_URL;
     }
 
     //setters
@@ -77,6 +77,27 @@ class User{
         $TDG = null;
         return true;
     }
+
+    public function load_user_id($id){
+        $TDG = new UserTDG();
+        $res = $TDG->get_by_id($id);
+
+        if(!$res)
+        {
+            $TDG = null;
+            return false;
+        }
+
+        $this->id = $res['id'];
+        $this->email = $res['email'];
+        $this->username = $res['username'];
+        $this->password = $res['password'];
+        $this->PP_URL = $res['PP_URL'];
+
+        $TDG = null;
+        return true;
+    }
+    
 
 
     //Login Validation
