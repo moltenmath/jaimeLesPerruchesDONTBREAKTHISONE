@@ -79,8 +79,8 @@
           <?php
           //Afficher limage du profil du user courrent
           $user = new User();
-          $url = $user->get_PP_URL();
-          $media = get_by_media_URL($url);
+          $media = new Media();
+          
           $media->display();
           ?>
         </div>
