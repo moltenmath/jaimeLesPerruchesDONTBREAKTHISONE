@@ -17,7 +17,7 @@
     }
 
     $album = new album();
-    if(!$album->add_album($title, $_SESSION["userID"])){
+    if(!$album->add_album($title)){
       header("Location: ../error.php?ErrorMSG=Bad%20request%20on%20album%20add%20!");
       die();
     }

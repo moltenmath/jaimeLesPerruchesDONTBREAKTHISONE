@@ -2,14 +2,14 @@
 
 include_once __DIR__ . "/../../UTILS/connector.php";
 
-class AlbumTDG extends DBAO{
+class ThreadTDG extends DBAO{
 
     private $tableName;
     private static $instance =null;
 
     public function __construct(){
         Parent::__construct();
-        $this->tableName = "albums";
+        $this->tableName = "threads";
     }
 
     //create table
@@ -56,7 +56,7 @@ class AlbumTDG extends DBAO{
         return $resp;
     }
 
-    public function get_all_albums(){
+    public function get_all_threads(){
 
         try{
             $conn = $this->connect();
@@ -120,7 +120,7 @@ class AlbumTDG extends DBAO{
         return $result;
     }
 
-    public function add_album($title){
+    public function add_thread($title){
 
         try{
             $conn = $this->connect();
@@ -141,11 +141,11 @@ class AlbumTDG extends DBAO{
     }
 
 
-    public function get_all_posts_by_albumID($id){
+    public function get_all_posts_by_threadID($id){
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "SELECT * FROM $tableName WHERE albumID=:id";
+            $query = "SELECT * FROM $tableName WHERE threadID=:id";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
@@ -162,7 +162,7 @@ class AlbumTDG extends DBAO{
         return $result;
     }
 
-    public function search_album_title_like($title){
+    public function search_thread_title_like($title){
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
