@@ -55,6 +55,14 @@ class Media
         $authorID = $this->authorID;
         include __DIR__ . "/../../Templates/mediaTemplate.php";
     }
+    
+    public function get_by_media_URL($url)
+    {
+        $mediaTDG = new MediaTDG();
+
+        return $mediaTDG->get_by_url($url);
+
+    }
 
     public static function create_entry($type, $url, $title, $albumID, $authorID)
     {
