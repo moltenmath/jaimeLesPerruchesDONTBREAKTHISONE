@@ -78,7 +78,8 @@
         <div class="form-group">
           <?php
           //Afficher limage du profil du user courrent
-          
+          //$user = new User();
+
 
           ?>
         </div>
