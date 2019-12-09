@@ -35,6 +35,7 @@
         header("Location: ../error.php?ErrorMSG=invalid email or password");
         die();
     }
+    //mets limage de profil dans un dossier dans media (le dossier cest PP) et le nome : $idUser 
     $media_file_type = pathinfo($_FILES['Media']['name'] ,PATHINFO_EXTENSION);
     
     $img_extensions_arr = array("jpg","jpeg","png","gif");
@@ -44,19 +45,20 @@
         $type = "image";
         echo "image";
     }
+    //ici quon midifie si on veut des video en image profile
     else if(in_array($media_file_type, $vid_extensions_arr)){
-        $type = "video";
-        echo "video";
+        echo "INVALID FILE TYPE VIDEO IS NOT ACCEPTING";
+        die();
     }
     else{
         echo "INVALID FILE TYPE";
         die();
     }
 
-
-    $imagePath  =  "../MEDIA/PP/" . $auser->get_id() .  $media_file_type;
+    //le path du folder PP
+    $imagePath  =  "../MEDIA/PP/" . $aUser->get_id() .  $media_file_type;
     move_uploaded_file($_FILES['Media']['tmp_name'],$imagePath);
-    
+    //mets le path de PP dans une session
     $_SESSION["file"] = $imagePath;
     header("Location: ../login.php");
     die();
