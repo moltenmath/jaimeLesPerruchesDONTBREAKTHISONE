@@ -120,14 +120,15 @@ class AlbumTDG extends DBAO{
         return $result;
     }
 
-    public function add_album($title){
+    public function add_album($title, $userID){
 
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "INSERT INTO $tableName (title) VALUES (:title)";
+            $query = "INSERT INTO $tableName (title, userID) VALUES (:title, :userID)";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':title', $title);
+            $stmt->bindParam(':userID', $userID);
             $stmt->execute();
             $res = true;
         }

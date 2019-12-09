@@ -2,7 +2,6 @@
 
 include_once __DIR__ . "/mediaTDG.php";
 include_once __DIR__ . "/../USER/user.php";
-include_once __DIR__ . "/../USER/userTDG.php";
 
 class Media
 {
@@ -55,20 +54,20 @@ class Media
         $authorID = $this->authorID;
         include __DIR__ . "/../../Templates/mediaTemplate.php";
     }
-    
-    public function get_by_media_URL($url)
-    {
-        $mediaTDG = new MediaTDG();
-
-        return $mediaTDG->get_by_url($url);
-
-    }
 
     public static function create_entry($type, $url, $title, $albumID, $authorID)
     {
         $TDG = mediaTDG::get_instance();
         $res = $TDG->add_media($type, $url, $title, $albumID, $authorID);
         return $res;
+    }
+
+    public function get_by_media_URL($url)
+    {
+        $mediaTDG = new MediaTDG();
+
+        return $mediaTDG->get_by_url($url);
+
     }
 
     public function load_media_by_id($id)
