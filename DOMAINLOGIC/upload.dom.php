@@ -4,6 +4,11 @@ include_once __DIR__ . "/../CLASSES/MEDIA/media.php";
 
 session_start();
 
+if(!validate_session()){
+    header("Location: ../error.php?ErrorMSG=Not%20logged%20in!");
+    die();
+}
+
 if(isset($_FILES['Media']) && !empty($_POST['Name'])){
  
     $title = $_POST['Name'];

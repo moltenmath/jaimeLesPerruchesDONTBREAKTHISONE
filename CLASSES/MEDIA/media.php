@@ -1,9 +1,11 @@
 <?php
+
 include_once __DIR__ . "/mediaTDG.php";
 include_once __DIR__ . "/../USER/user.php";
 
 class Media
 {
+
     private $id;
     private $type;
     private $URL;
@@ -16,31 +18,28 @@ class Media
     {
         $this->id = $id;
     }
-
     public function set_type($type)
     {
         $this->type = $type;
     }
-
     public function set_title($title)
     {
         $this->title = $title;
     }
-    
     public function set_authorID($authorID)
     {
         $this->authorID = $authorID;
     }
-
     public function set_albumID($albumID)
     {
         $this->albumID = $albumID;
     }
-
     public function set_URL($URL)
     {
         $this->URL = $URL;
     }
+
+
 
     public function __construct()
     {
@@ -55,12 +54,6 @@ class Media
         $authorID = $this->authorID;
         include __DIR__ . "/../../Templates/mediaTemplate.php";
     }
-    
-    public function get_by_media_URL($url)
-    {
-        $mediaTDG = new MediaTDG();
-        return $mediaTDG->get_by_url($url);
-    }
 
     public static function create_entry($type, $url, $title, $albumID, $authorID)
     {
@@ -69,11 +62,21 @@ class Media
         return $res;
     }
 
+    public function get_by_media_URL($url)
+    {
+        $mediaTDG = new MediaTDG();
+
+        return $mediaTDG->get_by_url($url);
+
+    }
+
     public function load_media_by_id($id)
     {
         $TDG = new mediaTDG();
         $res = $TDG->get_by_ID($id);
+
         $res2 = User::get_username_by_ID($res["authorID"]);
+
         $TDG = null;
         $this->set_id($res["id"]);
         $this->set_type($res["type"]);
@@ -81,6 +84,7 @@ class Media
         $this->set_authorID($res["authorID"]);
         $this->set_albumID($res["albumID"]);
         $this->set_URL($res["URL"]);
+
         return $res;
     }
 
@@ -88,7 +92,9 @@ class Media
     {
         $TDG = mediaTDG::get_instance();
         $res = $TDG->get_all_media();
+
         $obj_list = self::arr_to_obj($res);
+
         return $obj_list;
     }
 
@@ -103,10 +109,14 @@ class Media
     }
 
     public static function create_media_list($albumID){
+
         $TDG = mediaTDG::get_instance();
+
         $info_array=$TDG->get_by_albumID($albumID);
         $media_list = array();
+
         foreach($info_array as $ia){
+
             $res = User::get_username_by_ID($ia["authorID"]);
             $temp_media = new Media();
             $temp_media->set_id($ia["id"]);
@@ -118,12 +128,14 @@ class Media
             
             array_push($media_list, $temp_media);
         }
+
         return $media_list;
     }
 
     public function get_username_by_media_ID($mediaID)
     {
         $media = new Media();
+
         $tempRes = $media->load_media_by_id($mediaID);
        
         

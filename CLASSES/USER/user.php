@@ -55,9 +55,6 @@ class User{
         $this->password = $password;
     }
 
-    public function set_PP_URL($PP_URL){
-        $this->PP_URL = $PP_URL;
-    }
 
     /*
         Quality of Life methods (Dans la langue de shakespear (ou QOLM pour les intimes))
@@ -76,8 +73,7 @@ class User{
         $this->email = $res['email'];
         $this->username = $res['username'];
         $this->password = $res['password'];
-        $this->PP_URL = $res['PP_URL'];
-                
+
         $TDG = null;
         return true;
     }
