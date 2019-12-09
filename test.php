@@ -4,6 +4,6 @@
     session_start();
 
     $TID = $_GET["threadID"];
-    var_dump($_COOKIE);
+    var_dump($_COOKIE);//ok
 
 ?>
