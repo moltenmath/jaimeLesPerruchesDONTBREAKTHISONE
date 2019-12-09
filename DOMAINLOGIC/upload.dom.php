@@ -1,9 +1,12 @@
 <?php
 
 include_once __DIR__ . "/../CLASSES/MEDIA/media.php";
+include_once __DIR__ . "/../UTILS/sessionhandler.php";
 
 session_start();
 
+
+//validates the fucking sessions
 if(!validate_session()){
     header("Location: ../error.php?ErrorMSG=Not%20logged%20in!");
     die();
