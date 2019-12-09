@@ -78,10 +78,7 @@
         <div class="form-group">
           <?php
           //Afficher limage du profil du user courrent
-
-          $media = Media:: ;
-          //get Image by user id
-          $media->display();
+          
 
           ?>
         </div>
