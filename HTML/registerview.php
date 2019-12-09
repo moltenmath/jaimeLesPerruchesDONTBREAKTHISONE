@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-4">
             <h2>REGISTER</h2>
-            <form method = "post" action = "./DOMAINLOGIC/register.dom.php">
+            <form method = "post" action = "./DOMAINLOGIC/register.dom.php" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label for="email">Email:</label>

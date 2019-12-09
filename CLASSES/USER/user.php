@@ -152,7 +152,7 @@ class User{
         //add user to DB
         $TDG = new UserTDG();
         //ADD PROFILE PIC URL STEPHANE
-        $res = $TDG->add_user($email, $username, password_hash($pw, PASSWORD_DEFAULT), $PP_URL);
+        $res = $TDG->add_user($email, $username, password_hash($pw, PASSWORD_DEFAULT));
         $TDG = null;
         return true;
     }

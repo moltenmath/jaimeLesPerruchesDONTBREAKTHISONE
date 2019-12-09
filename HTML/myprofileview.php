@@ -78,9 +78,10 @@
         <div class="form-group">
           <?php
           //Afficher limage du profil du user courrent
-          //$user = new User();
-
-
+          $user = new User();
+          $url = $user->get_PP_URL();
+          $media = get_by_media_URL($url);
+          $media->display();
           ?>
         </div>
         <div class="form-group">
