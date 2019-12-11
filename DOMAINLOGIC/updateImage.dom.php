@@ -9,7 +9,7 @@ if(isset($_FILES['Media']) && !empty($_POST['Name'])){
     $title = $_POST['Name'];
     $target_dir = "MEDIA/";
 
-    //obtenir l'extention du fichier uploader
+    //obtenir l'extention du fichier uploader+
     $media_file_type = pathinfo($_FILES['Media']['name'] ,PATHINFO_EXTENSION);
     //$media_file_ext = strtolower(end(explode('.',$_FILES['Media']['name'])));
   

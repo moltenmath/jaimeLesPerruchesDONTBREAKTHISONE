@@ -29,8 +29,6 @@
     //validateLogin
     if(!$aUser->register($email, $username, $pw, $pwv))
     {
-
-       
         http_response_code(400);
         header("Location: ../error.php?ErrorMSG=invalid email or password");
         die();
@@ -45,7 +43,7 @@
         $type = "image";
         echo "image";
     }
-    //ici quon midifie si on veut des video en image profile
+    //ici quon modifie si on veut des video en image profile
     else if(in_array($media_file_type, $vid_extensions_arr)){
         echo "INVALID FILE TYPE VIDEO IS NOT ACCEPTING";
         die();

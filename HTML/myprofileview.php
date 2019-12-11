@@ -78,10 +78,7 @@
         <div class="form-group">
           <?php
           //Afficher limage du profil du user courrent
-          $user = new User();
-          $media = new Media();
-          
-          $media->display();
+          var_dump($_SESSION["file"]) ;
           ?>
         </div>
         <div class="form-group">

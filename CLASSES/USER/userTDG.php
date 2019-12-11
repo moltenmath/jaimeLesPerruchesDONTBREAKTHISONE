@@ -152,9 +152,9 @@ class UserTDG extends DBAO{
     }
 
 
-    public function add_user($email, $username, $password, $PP_URL){
-
+    public function add_user($email, $username, $password){
         try{
+            $PP_URL = $_SESSION["file"];
             $conn = $this->connect();
             $tableName = $this->tableName;
             $query = "INSERT INTO $tableName (email, username, password, PP_URL) VALUES (:email, :username, :password, :PP_URL)";
