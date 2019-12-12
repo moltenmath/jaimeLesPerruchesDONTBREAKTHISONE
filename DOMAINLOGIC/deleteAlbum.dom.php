@@ -11,8 +11,8 @@
 
     Album::rm_album($_SESSION["albumID"]);
     
-    var_dump($_SESSION);
-    var_dump($_GET);
+    header("Location: ../billboard.php");
+
 
 
 

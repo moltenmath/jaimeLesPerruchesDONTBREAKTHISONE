@@ -180,6 +180,10 @@ class Album{
     {
         $TDG = new AlbumTDG;
         $TDG->rm_album($albumID);
+
+        $mediaTDG = new mediaTDG();
+        
+        $mediaTDG->rm_media_by_albumID($albumID);
     }
 
 }

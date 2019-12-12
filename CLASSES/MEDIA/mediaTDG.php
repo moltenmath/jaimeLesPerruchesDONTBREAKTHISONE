@@ -128,4 +128,24 @@ class mediaTDG extends DBAO{
         return $result;
     }
 
+    public function rm_media_by_albumID($albumID){
+
+        try{
+            $conn = $this->connect();
+            $tableName = "media";
+            $query = "DELETE FROM $tableName WHERE albumID = :albumID";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':albumID', $albumID);
+            $stmt->execute();
+            $res = true;
+        }
+        catch(PDOException $e)
+        {
+            $res = false;
+        }
+        //fermeture de connection PDO
+        $conn = null;
+        return $res;
+    }
+
 }
