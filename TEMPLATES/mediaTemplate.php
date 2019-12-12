@@ -17,13 +17,14 @@
 
         echo "<div class='card-body'>";
         echo "<h5 class='card-title'>" . $title . "</h5>";
+        //displays username 
         echo "<p class='card-text'>Uploaded by: ";
-
         $user = new User();
         $user->load_user_id($authorID);
         echo $user->get_username();
 
         echo "</p>";
+        echo "<p>Uploaded on: " . $_SESSION["lastTimeStamp"] . "</p>";
         
         echo "</div>";
 

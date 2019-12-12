@@ -12,6 +12,7 @@ class Media
     private $title;
     private $authorID;
     private $albumID;
+    private $timeStamp;
 
     //GET AND SET SOME DAMN MEDIA
     public function set_id($id)
@@ -38,7 +39,14 @@ class Media
     {
         $this->URL = $URL;
     }
-
+    public function set_timeStamp($timeStamp)
+    {
+        $this->timeStamp = $timeStamp;
+    }
+    //GET
+    public function get_timeStamp(){
+        return $this->timeStamp;
+    }
 
 
     public function __construct()
@@ -52,6 +60,8 @@ class Media
         $url = $this->URL;
         $title = $this->title;
         $authorID = $this->authorID;
+        $timeStamp = $this->timeStamp;
+
         include __DIR__ . "/../../Templates/mediaTemplate.php";
     }
     
@@ -135,6 +145,7 @@ class Media
             $temp_media->set_authorID($ia["authorID"]);
             $temp_media->set_albumID($ia["albumID"]);
             $temp_media->set_URL($ia["URL"]);
+            $temp_media->set_timeStamp($ia["timeStamp"]);
             
             array_push($media_list, $temp_media);
         }
