@@ -33,8 +33,8 @@
                 </div>
                 
                 <div class="form-group">
-                        <label for="img">Image de profile:</label>
-                    <input type="file" class="form-control" name="img" id="img" required><br>
+                    <label for="img">Image de profile:</label>
+                    <input type="file" class="form-control" name="profilePic" id="img" required><br>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>  

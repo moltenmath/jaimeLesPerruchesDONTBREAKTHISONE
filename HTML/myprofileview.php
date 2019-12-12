@@ -78,7 +78,8 @@
         <div class="form-group">
           <?php
           //Afficher limage du profil du user courrent
-          var_dump($_SESSION["file"]) ;
+          var_dump($_SESSION) ;
+      
           ?>
         </div>
         <div class="form-group">

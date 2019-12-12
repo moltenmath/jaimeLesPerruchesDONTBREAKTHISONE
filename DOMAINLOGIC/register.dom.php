@@ -15,7 +15,10 @@
     $username = $_POST["username"];
     $pw = $_POST["pw"];
     $pwv = $_POST["pwValidation"];
+    $pp  = $_POST["profilePic"];
 
+    //si on enleve ca ca explose
+    var_dump($_FILES);
     //Validation Posts
     if(!Validator::validate_email($email) || !Validator::validate_password($pw))
     {
@@ -34,8 +37,12 @@
         die();
     }
     //mets limage de profil dans un dossier dans media (le dossier cest PP) et le nome : $idUser 
-    $media_file_type = pathinfo($_FILES['Media']['name'] ,PATHINFO_EXTENSION);
-    
+    $media_file_type = pathinfo($_FILES["profilePic"]["name"],PATHINFO_EXTENSION);
+
+    //si on enleve ca ca explose
+    echo $pp;
+    var_dump($media_file_type) ;
+
     $img_extensions_arr = array("jpg","jpeg","png","gif");
     $vid_extensions_arr = array("webm", "avi", "wmv", "rm", "rmvb", "mp4", "mpeg");
 
@@ -49,15 +56,18 @@
         die();
     }
     else{
+        
+        
         echo "INVALID FILE TYPE";
         die();
     }
 
     //le path du folder PP
-    $imagePath  =  "../MEDIA/PP/" . $aUser->get_id() .  $media_file_type;
-    move_uploaded_file($_FILES['Media']['tmp_name'],$imagePath);
+    $imagePath  =  "../MEDIA/PP/" . $username. "." .  $media_file_type;
+    move_uploaded_file($_FILES['profilePic']['tmp_name'],$imagePath);
     //mets le path de PP dans une session
     $_SESSION["file"] = $imagePath;
+    
     header("Location: ../login.php");
     die();
 ?>
