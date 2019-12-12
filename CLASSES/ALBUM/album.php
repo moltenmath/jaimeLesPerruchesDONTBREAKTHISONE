@@ -176,4 +176,10 @@ class Album{
         return $album_list;
     }
 
+    public static function rm_album($albumID)
+    {
+        $TDG = new AlbumTDG;
+        $TDG->rm_album($albumID);
+    }
+
 }

@@ -21,8 +21,6 @@
             $_SESSION["albumID"] = $album->get_id();
 
             echo "</form>";            
-
-            echo getcwd() . "\n";
         }
 
     }
