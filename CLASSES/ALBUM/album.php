@@ -8,7 +8,7 @@ class Album{
     private $id;
     private $title;
     private $medias;
-    private $ownerID;
+    private $userID;
 
     public function __construct(){
       $this->medias = array();
@@ -26,8 +26,8 @@ class Album{
     public function get_medias(){
         return $this->medias;
     }
-    public function get_ownerID(){
-        return $this->ownerID;
+    public function get_userID(){
+        return $this->userID;
     }
 
     //setters
@@ -35,8 +35,8 @@ class Album{
         $this->id = $id;
     }
 
-    public function set_ownerID($ownerID){
-        $this->id = $ownerID;
+    public function set_userID($userID){
+        $this->id = $userID;
     }
 
     public function set_title($title){
@@ -61,6 +61,7 @@ class Album{
 
         $this->id = $res["id"];
         $this->title = $res["title"];
+        $this->userID = $res["userID"];
 
         return true;
     }
@@ -173,6 +174,12 @@ class Album{
         }
         
         return $album_list;
+    }
+
+    public static function rm_album($albumID)
+    {
+        $TDG = new AlbumTDG;
+        $TDG->rm_album($albumID);
     }
 
 }
