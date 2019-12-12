@@ -74,20 +74,15 @@
     </div>
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-      <div class="container align-middle border mb-sm-5 ml-sm-15">
-        <div class="form-group">
+    
+      <div class="container align-middle border mb-sm-5 ml-sm-15">  
+         <h3>Info profil</h3>  
           <?php
           //Afficher limage du profil du user courrent
-          var_dump($_SESSION) ;
-      
+           echo "Image du profil : <img  width='320' height='240' src='./MEDIA/PP/" . $_SESSION["userEmail"] .".jpg'> <br>";
+           echo "Couriel : "."<br>".$_SESSION["userEmail"]."<br>";
+           echo "Pseudo  : "."<br>".$_SESSION["userName"];
           ?>
-        </div>
-        <div class="form-group">
-          <?php
-          //Afficher limage du profil du user courrent
-
-          ?>
-        </div>
       </div>
     </div>
 

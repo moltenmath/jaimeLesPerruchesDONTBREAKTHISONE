@@ -152,9 +152,9 @@ class UserTDG extends DBAO{
     }
 
 
-    public function add_user($email, $username, $password){
+    public function add_user($email, $username, $password,$pp){
         try{
-            $PP_URL = $_SESSION["file"];
+            
             $conn = $this->connect();
             $tableName = $this->tableName;
             $query = "INSERT INTO $tableName (email, username, password, PP_URL) VALUES (:email, :username, :password, :PP_URL)";
@@ -162,7 +162,7 @@ class UserTDG extends DBAO{
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':password', $password);
-            $stmt->bindParam(':PP_URL', $PP_URL);
+            $stmt->bindParam(':PP_URL', $pp);
             $stmt->execute();
             $resp =  true;
         }

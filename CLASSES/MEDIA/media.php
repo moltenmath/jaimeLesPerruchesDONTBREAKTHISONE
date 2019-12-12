@@ -65,16 +65,6 @@ class Media
         include __DIR__ . "/../../Templates/mediaTemplate.php";
     }
     
-    public function displayProfile()
-    {
-        $id = $this->id;
-        $type = $this->type;
-        $url = $this->URL;
-        $title = $this->title;
-        $authorID = $this->authorID;
-        include __DIR__ . "/../../Templates/mediaTemplate.php";
-    }
-
     public static function create_entry($type, $url, $title, $albumID, $authorID)
     {
         $TDG = mediaTDG::get_instance();

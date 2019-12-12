@@ -16,7 +16,6 @@
     $pw = $_POST["pw"];
     $pwv = $_POST["pwValidation"];
     $pp  = $_POST["profilePic"];
-
     //si on enleve ca ca explose
     var_dump($_FILES);
     //Validation Posts
@@ -29,13 +28,7 @@
 
     $aUser = new User();
 
-    //validateLogin
-    if(!$aUser->register($email, $username, $pw, $pwv))
-    {
-        http_response_code(400);
-        header("Location: ../error.php?ErrorMSG=invalid email or password");
-        die();
-    }
+    
     //mets limage de profil dans un dossier dans media (le dossier cest PP) et le nome : $idUser 
     $media_file_type = pathinfo($_FILES["profilePic"]["name"],PATHINFO_EXTENSION);
 
@@ -63,11 +56,17 @@
     }
 
     //le path du folder PP
-    $imagePath  =  "../MEDIA/PP/" . $username. "." .  $media_file_type;
+    $imagePath  =  "../MEDIA/PP/" .  $email . "." .  $media_file_type;
     move_uploaded_file($_FILES['profilePic']['tmp_name'],$imagePath);
     //mets le path de PP dans une session
     $_SESSION["file"] = $imagePath;
-    
+    //validateLogin
+    if(!$aUser->register($email, $username, $pw, $pwv,$imagePath))
+    {
+        http_response_code(400);
+        header("Location: ../error.php?ErrorMSG=invalid email or password");
+        die();
+    }
     header("Location: ../login.php");
     die();
 ?>
