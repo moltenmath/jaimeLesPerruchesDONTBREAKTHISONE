@@ -25,6 +25,33 @@
 
         echo "</p>";
         echo "<p>Uploaded on: " . $_SESSION["lastTimeStamp"] . "</p>";
+
+        echo "<div style='align:center; display:inline-block'>";
+
+
+        echo "<div class='row'>";
+
+        if(isset($_SESSION["userID"]))
+        {
+            if($_SESSION["userID"] == $authorID)
+            {
+                echo    "<div class='col-xs-6'>
+                            <form action='' method='GET'>
+                                <button>Delete Post</button>
+                            </form>
+                        </div>";
+
+            }
+        }
+
+        echo "<div class='col-xs-6'>
+                <form action='' method='GET'>
+                    <button>Comment on post</button>
+                </form>
+                </div>
+        </div>";
+        
+        echo "</div>";
         
         echo "</div>";
 
