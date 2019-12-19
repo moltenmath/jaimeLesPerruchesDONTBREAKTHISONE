@@ -39,9 +39,10 @@
         {
             if($_SESSION["userID"] == $authorID)
             {
+                //method is set to post so taht it doesn't erase my DIY get variable lol
                 echo    "<div class='col-xs-6'>
-                            <form action='' method='GET'>
-                                <button>Delete Post</button>
+                            <form action='./DOMAINLOGIC/deletepost.dom.php?mediaID=" . $id ."' method='POST'>
+                                <button>Delete Media</button>
                             </form>
                         </div>";
 
@@ -49,7 +50,7 @@
         }
 
         echo "<div class='col-xs-6'>
-                <form action='' method='GET'>
+                <form action='' method='POST'>
                     <button>Comment on post</button>
                 </form>
                 </div>

@@ -3,6 +3,9 @@
     
     include "CLASSES/MEDIA/media.php";
     include "UTILS/sessionhandler.php";
+
+    $title = "Single Picture";
+
     $content = array();
 
     $module = "singlepictureview.php";
