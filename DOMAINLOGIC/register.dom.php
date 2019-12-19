@@ -9,7 +9,7 @@
         header("Location: ../error.php?ErrorMSG=Already%20logged!");
         die();
     }
-
+    var_dump($_POST);
     //prendre les variables du Post
     $email = $_POST["email"];
     $username = $_POST["username"];
