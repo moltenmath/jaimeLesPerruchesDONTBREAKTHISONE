@@ -21,8 +21,8 @@
 
         echo "<div class='card-body'>";
         echo "<h5 class='card-title'><a href='./singlepicture.php?mediaID=" . $id . "'>" . $title . "</a></h5>";
-        //displays username 
-        echo "<a href='' class='card-text'>Uploaded by: ";
+        echo "<p style='display:inline'>Uploaded by: </p>";
+        echo "<a href='' class='card-text'>";
         $user = new User();
         $user->load_user_id($authorID);
         echo $user->get_username();
