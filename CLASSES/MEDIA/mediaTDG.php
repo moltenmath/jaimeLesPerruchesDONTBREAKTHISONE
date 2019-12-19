@@ -11,7 +11,7 @@ class mediaTDG extends DBAO{
         Parent::__construct();
         $this->tableName = "media";
     }
-
+ 
     public static function get_instance(){
         if(is_null(self::$instance)){
             self::$instance = new mediaTDG();

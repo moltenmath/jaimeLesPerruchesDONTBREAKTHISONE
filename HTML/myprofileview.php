@@ -58,7 +58,7 @@
       <!--Image-->
       <div class="container align-middle border mb-sm-5">
         <h3>Modifier image profile</h3>
-        <form method="post" action="./DOMAINLOGIC/ModifierImageProfil.dom.php">
+        <form method="post" action="./DOMAINLOGIC/ModifierImageProfil.dom.php" enctype="multipart/form-data">
 
           <div class="form-group">
             <label for="newImg">new Image:</label>
