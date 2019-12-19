@@ -50,7 +50,7 @@
         }
 
         echo "<div class='col-xs-6'>
-                <form action='./comment.php?mediaID' method='POST'>
+                <form action='./comment.php?mediaID=" . $id ."' method='POST'>
                     <button>Comment on post</button>
                 </form>
                 </div>

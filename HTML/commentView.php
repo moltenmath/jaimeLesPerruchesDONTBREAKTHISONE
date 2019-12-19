@@ -1,7 +1,15 @@
-<div class='card'>
-    <div class="card-body">
+<div class='card' style='width: 30rem; align:center; display:inline-block; border-color:black'>
+    <div class="card-body" >
     
-        <t> hello </t>
+        <h3>Your comment here!</h3>
+
+        <form method="post" action="./DOMAINLOGIC/comment.dom.php">
+            <textarea name="comment" rows="10" cols="50" style="display:inline-block; ">
+                //fill this with a comment if applicable (send a commentID through a get ben batard tbnk)
+            
+            </textarea>
+            <button class="btn btn-success" type="submit">Comment</button>
+        </form>
 
     </div>
 </div>

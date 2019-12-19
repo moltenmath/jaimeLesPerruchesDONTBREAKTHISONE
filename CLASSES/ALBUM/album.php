@@ -76,6 +76,7 @@ class Album{
 
         $this->id = $res["id"];
         $this->title = $res["title"];
+        $this->userID = $res["userID"];
 
         return true;
     }
@@ -95,9 +96,10 @@ class Album{
     public function display_album(){
         $title = $this->title;
         $id = $this->id;
+        $userID = $this->userID;
   
         echo "<div class='card bg-dark mb-4'>";
-        echo "<div style='color:white' class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title'><h5>$title</h5></a>";
+        echo "<div style='color:white' class='card-header text-left '><a href='displayalbum.php?albumID=$id&albumTitle=$title&userID=$userID'><h5>$title</h5></a>";
         echo "</div>";
         echo "</div>";
     }
@@ -155,6 +157,7 @@ class Album{
             $album = new Album();
             $album->set_id($r["id"]);
             $album->set_title($r["title"]);
+            $album->set_userID($r["userID"]);
             array_push($album_list, $album);
         }
 
