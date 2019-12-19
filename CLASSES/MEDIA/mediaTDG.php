@@ -16,7 +16,7 @@ class mediaTDG extends DBAO{
         if(is_null(self::$instance)){
             self::$instance = new mediaTDG();
         }
-        return self::$instance;    //ij
+        return self::$instance;
     }
 
     public function add_media($type, $url, $title, $albumID, $authorID){
