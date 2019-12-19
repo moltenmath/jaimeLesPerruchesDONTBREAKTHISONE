@@ -22,13 +22,13 @@
         echo "<div class='card-body'>";
         echo "<h5 class='card-title'><a href='./singlepicture.php?mediaID=" . $id . "'>" . $title . "</a></h5>";
         //displays username 
-        echo "<p class='card-text'>Uploaded by: ";
+        echo "<a href='' class='card-text'>Uploaded by: ";
         $user = new User();
         $user->load_user_id($authorID);
         echo $user->get_username();
 
-        echo "</p>";
-        echo "<a href=''>Uploaded on: " . $media->get_timeStamp() . "</a>";
+        echo "</a>";
+        echo "<p>Uploaded on: " . $media->get_timeStamp() . "</p>";
 
         echo "<div style='align:center; display:inline-block'>";
 
