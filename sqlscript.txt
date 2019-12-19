@@ -18,5 +18,12 @@ authorID INTEGER(10) NOT NULL,
 albumID INTEGER(10),
 URL VARCHAR(50) NOT NULL,
 timeStamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-description varchar(max));
+description varchar(500));
+
+CREATE TABLE IF NOT EXISTS comments
+(id INTEGER(10) AUTO_INCREMENT PRIMARY KEY,
+comment VARCHAR(500) NOT NULL,
+userID INTEGER(10),
+mediaID INTEGER(10));
+
 
