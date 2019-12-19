@@ -222,6 +222,24 @@ class User{
         return $res;
     }
 
+    // Profile Picture
+
+    public function update_picture($email,$pp){
+
+        //load user infos
+        if(!$this->load_user($email))
+        {
+          return false;
+        }
+        //create TDG
+        $TDG = new UserTDG();
+        $res = $TDG->update_picture($pp, $this->id);
+        $TDG = null;
+        //only return true if update_picture returned true
+        return $res;
+    }
+
+    
     public static function get_username_by_ID($id){
         $TDG = new UserTDG();
         $res = $TDG->get_by_id($id);
