@@ -18,5 +18,5 @@ authorID INTEGER(10) NOT NULL,
 albumID INTEGER(10),
 URL VARCHAR(50) NOT NULL,
 timeStamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-description varchar(250));
+description varchar(max));
 

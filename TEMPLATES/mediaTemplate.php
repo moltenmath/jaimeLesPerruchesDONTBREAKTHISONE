@@ -4,6 +4,10 @@
         //get's the file extension to distinguish between video and images
         $ext = pathinfo($url ,PATHINFO_EXTENSION);
 
+        $media = new Media();
+
+        $media->load_media_by_id($id);
+
         echo "<div class='card mt-4 mb-4' style='width: 30rem; align:center; display:inline-block; border-color:black'>";
 
         if($type == "image"){
@@ -16,7 +20,7 @@
         }
 
         echo "<div class='card-body'>";
-        echo "<h5 class='card-title'>" . $title . "</h5>";
+        echo "<h5 class='card-title'><a href='./singlepicture.php?mediaID=" . $id . "'>" . $title . "</a></h5>";
         //displays username 
         echo "<p class='card-text'>Uploaded by: ";
         $user = new User();
@@ -24,7 +28,7 @@
         echo $user->get_username();
 
         echo "</p>";
-        echo "<p>Uploaded on: " . $_SESSION["lastTimeStamp"] . "</p>";
+        echo "<p>Uploaded on: " . $media->get_timeStamp() . "</p>";
 
         echo "<div style='align:center; display:inline-block'>";
 

@@ -33,7 +33,6 @@
     $media_arr = $mediaInstance->create_media_list($_GET["albumID"]);
     foreach ($media_arr as $media) {
         $media->display();
-        $_SESSION["lastTimeStamp"] = $media->get_timeStamp();
     }
 
 ?>

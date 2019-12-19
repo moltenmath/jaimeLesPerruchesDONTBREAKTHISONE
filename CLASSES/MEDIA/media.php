@@ -94,6 +94,7 @@ class Media
         $this->set_authorID($res["authorID"]);
         $this->set_albumID($res["albumID"]);
         $this->set_URL($res["URL"]);
+        $this->set_timeStamp($res["timeStamp"]);
 
         return $res;
     }
