@@ -48,6 +48,10 @@ class Media
         return $this->timeStamp;
     }
 
+    public function get_URL(){
+        return $this->URL;
+    }
+
 
     public function __construct()
     {
@@ -152,6 +156,14 @@ class Media
        
         
         $res = User::get_username_by_ID($tempRes["authorID"]);
+    }
+
+    public static function remove_media_by_id($id)
+    {
+        $TDG = mediaTDG::get_instance();
+
+        $TDG->rm_media_by_mediaID($id);
+
     }
 
 }

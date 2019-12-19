@@ -1,4 +1,6 @@
 <?php
+    
+    
     $postID = $_GET["mediaID"];
     
     $media = new Media();
