@@ -28,7 +28,7 @@
         echo $user->get_username();
 
         echo "</p>";
-        echo "<p>Uploaded on: " . $media->get_timeStamp() . "</p>";
+        echo "<a href=''>Uploaded on: " . $media->get_timeStamp() . "</a>";
 
         echo "<div style='align:center; display:inline-block'>";
 
@@ -50,7 +50,7 @@
         }
 
         echo "<div class='col-xs-6'>
-                <form action='' method='POST'>
+                <form action='./comment.php?mediaID' method='POST'>
                     <button>Comment on post</button>
                 </form>
                 </div>
