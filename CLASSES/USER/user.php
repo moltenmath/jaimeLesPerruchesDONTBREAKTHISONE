@@ -246,4 +246,11 @@ class User{
         $TDG = null;
         return $res["username"];
     }
+    
+    public static function search_user($name){
+        $TDG = new UserTDG();
+        $res = $TDG->search_user($name);
+        $TDG = null;
+        return $res["username"];
+    }
 }

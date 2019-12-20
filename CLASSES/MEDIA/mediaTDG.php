@@ -168,7 +168,7 @@ class mediaTDG extends DBAO{
         return $res;
     }
 
-
+    //pour la barre search
     public function search_media($rechercher)
     {
         try{
