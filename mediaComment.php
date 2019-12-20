@@ -6,8 +6,10 @@
 
     $content = array();
 
-    $module = "commentView.php";
+    $module = "mediaCommentView.php";
     array_push($content, $module);
+
+    $_SESSION["lastMediaID"] = $_GET["mediaID"];
 
     
 
