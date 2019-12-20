@@ -7,7 +7,7 @@
 
     $username = User::get_username_by_ID($mediacomments->get_userID());
 
-
+echo "<div>";
 echo "<div class='card mt-4 mb-4' style='width: 30rem; align:center; display:inline-block; border-color:black; padding-'>
         <div class='card-body'>";
     
@@ -28,4 +28,5 @@ echo"   </div>
 
     echo "</div>";
 
+    echo "</div>";
 ?>
