@@ -182,27 +182,24 @@ class Media
         
         $TDG = mediaTDG::get_instance();
         $res = $TDG->search_media($recherche);
-        $arrayMedia = [];
-        foreach($res as $media)
-        {
-            $arrayMedia += self::arr_to_media($media);
-           
-        }
-        
-        return $arrayMedia;
+        $res = Media::arr_to_media($res);
+ 
+        return $res;
     }
     public static function arr_to_media($arr)
     {
         $obj_arr = array();
-        foreach ($arr as $info) {
-            $temp = new Media();
-            $temp->set_id($info["id"]);
-            $temp->set_type($info["type"]);
-            $temp->set_URL($info["URL"]);
-            $temp->set_title($info["title"]);
-
+        foreach ($arr as $ia) {
+            $temp_media = new Media();
+            $temp_media->set_id($ia["id"]);
+            $temp_media->set_type($ia["type"]);
+            $temp_media->set_title($ia["title"]);
+            $temp_media->set_authorID($ia["authorID"]);
+            $temp_media->set_albumID($ia["albumID"]);
+            $temp_media->set_URL($ia["URL"]);
+            $temp_media->set_timeStamp($ia["timeStamp"]);
             
-            $obj_arr.array_push($temp);
+            array_push($obj_arr,$temp_media);
         }
         return $obj_arr;
     }

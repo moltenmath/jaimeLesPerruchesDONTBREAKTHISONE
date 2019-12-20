@@ -43,6 +43,9 @@ class User{
     }
 
     //setters
+    private function set_id($id){
+        $this->id = $id;
+    }
     public function set_email($email){
         $this->email = $email;
     }
@@ -251,12 +254,33 @@ class User{
         $TDG = new UserTDG();
         $res = $TDG->search_user($name);
         $TDG = null;
+        $res = User::arr_to_user($res);
         return $res;
         
     }
+
+    public static function arr_to_user($arr)
+    {
+        $obj_arr = array();
+        foreach ($arr as $res) {
+            $temp = new User();
+            $temp->set_id($res['id']);
+            $temp->set_email($res['email']);
+            $temp->set_username( $res['username']);
+            $temp->set_password( $res['password']);
+            $temp->set_PP_URL($res['PP_URL']);
+            array_push($obj_arr,$temp);
+        }
+        return $obj_arr;
+    }
+
     public function display_user()
     {
-        
-
+        $username = $this->username;
+  
+        echo "<div class='card bg-dark mb-4'>";
+        echo "<div style='color:white' class='card-header text-left '>$username";
+        echo "</div>";
+        echo "</div>";
     }
 }
