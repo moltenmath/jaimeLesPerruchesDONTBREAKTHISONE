@@ -19,18 +19,19 @@ class mediaTDG extends DBAO{
         return self::$instance;
     }
 
-    public function add_media($type, $url, $title, $albumID, $authorID){
+    public function add_media($type, $url, $title, $albumID, $authorID, $description){
         
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "INSERT INTO $tableName (type, URL, title, authorID, albumID) VALUES (:type, :URL, :title, :authorID, :albumID)";
+            $query = "INSERT INTO $tableName (type, URL, title, authorID, albumID, description) VALUES (:type, :URL, :title, :authorID, :albumID, :description)";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':type', $type);
             $stmt->bindParam(':URL', $url);
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':albumID', $albumID);
             $stmt->bindParam(':authorID', $authorID);
+            $stmt->bindParam(':description', $description);
             $stmt->execute();
             $resp = true;
         }

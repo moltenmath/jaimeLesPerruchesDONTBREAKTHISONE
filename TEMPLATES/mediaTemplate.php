@@ -51,11 +51,17 @@
 
         echo "<div class='col-xs-6'>
                 <form action='./mediaComment.php?mediaID=" . $id ."' method='POST'>
-                    <button>Comment on post</button>
+                    <button>Comment</button>
                 </form>
                 </div>
         </div>";
         
+        if($media->get_desc() != NULL)
+        {
+            echo "<b>Description: </h7></b>";
+            echo "<div>" . $media->get_desc() ."</div>";
+
+        }
         echo "</div>";
         
         echo "</div>";
