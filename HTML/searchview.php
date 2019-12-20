@@ -1,11 +1,31 @@
 <?php
-    include "CLASSES/THREAD/thread.php";
-    $thread_list = Thread::search_thread($_GET["search"]);
+    include "../CLASSES/USER/user.php";
+    include "../CLASSES/ALBUM/album.php";
+    include "../CLASSES/MEDIA/media.php";
+    $userListe = User::search_user($_GET["search"]);
+    $albumListe = Album::search_album($_GET["search"]);
+    $mediaListe = Media::search_media($_GET["search"]);
 ?>
 
-<h1 class="my-4">Search results:</h1>
+<h1 class="my-4">Search results for user:</h1>
 <?php
-  foreach($thread_list as $thread){
-    $thread->display_thread();
+  foreach($userListe as $user){
+    $user->display_user();
+  }
+?>
+
+
+<h1 class="my-4">Search results for album:</h1>
+<?php
+  foreach($albumListe as $album){
+    $user->display_album();
+  }
+?>
+
+
+<h1 class="my-4">Search results for media:</h1>
+<?php
+  foreach($mediaListe as $media){
+    $media->display();
   }
 ?>

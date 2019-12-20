@@ -6,9 +6,10 @@
       die();
     }
     $title="search";
-
+    $module ="searchview.php";
     $content = array();
-    array_push($content, "searchview.php");
+    array_push($content, $module);
     require_once __DIR__ . "/HTML/masterpage.php";
+
 ?>
 
