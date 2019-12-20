@@ -95,21 +95,20 @@
         }
 
         public function load_mediacomment_by_id($id)
-    {
-        $TDG = new mediacommentTDG();
-        $res = $TDG->get_by_ID($id);
+        {
+            $TDG = new mediacommentTDG();
+            $res = $TDG->get_by_ID($id);
 
-        $TDG = null;
-        $this->set_id($res["id"]);
-        $this->set_comment($res["comment"]);
-        $this->set_userID($res["userID"]);
-        $this->set_mediaID($res["mediaID"]);
-        $this->set_timestamp($res["timeStamp"]);
+            $TDG = null;
+            $this->set_id($res["id"]);
+            $this->set_comment($res["comment"]);
+            $this->set_userID($res["userID"]);
+            $this->set_mediaID($res["mediaID"]);
+            $this->set_timestamp($res["timeStamp"]);
+            return $res;
+        }
 
         
-
-        return $res;
-    }
     }
 
 ?>
