@@ -172,8 +172,15 @@ class Media
     {
         
         $TDG = mediaTDG::get_instance();
-        $TDG->search_media($recherche);
+        $res = $TDG->search_media($recherche);
+        $arrayMedia = [];
+        foreach($media as $res)
+        {
+            $media = self::arr_to_obj($res);
+            $arrayMedia += $media;
+        }
         
+        return $arrayMedia;
     }
 
 }
