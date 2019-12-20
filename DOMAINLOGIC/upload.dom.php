@@ -15,6 +15,7 @@ if(!validate_session()){
 if(isset($_FILES['Media']) && !empty($_POST['Name'])){
  
     $title = $_POST['Name'];
+    $description = $_POST['description'];
     $target_dir = "MEDIA/";
 
     //obtenir l'extention du fichier uploader
@@ -53,7 +54,7 @@ if(isset($_FILES['Media']) && !empty($_POST['Name'])){
 
     //create entry in database
     //MUST DEFINE ALBUMID
-    Media::create_entry($type, $file_url, $title, $_SESSION["lastVisitedAlbumID"], $_SESSION["userID"]);
+    Media::create_entry($type, $file_url, $title, $_SESSION["lastVisitedAlbumID"], $_SESSION["userID"], $description);
 
     //redirection
     header("Location: ../billboard.php");

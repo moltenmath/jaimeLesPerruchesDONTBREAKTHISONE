@@ -18,6 +18,11 @@
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
 
+    <div class="form-group">
+      <label>Description</label> <br>
+      <textarea name="description" id="description" > </textarea>
+    </div>
+
     <button class="btn btn-success" type="submit">Upload</button>
 
   </form>

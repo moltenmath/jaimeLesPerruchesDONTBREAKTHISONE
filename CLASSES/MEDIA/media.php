@@ -13,6 +13,7 @@ class Media
     private $authorID;
     private $albumID;
     private $timeStamp;
+    private $description;
 
     //GET AND SET SOME DAMN MEDIA
     public function set_id($id)
@@ -43,6 +44,10 @@ class Media
     {
         $this->timeStamp = $timeStamp;
     }
+    public function set_desc($description)
+    {
+        $this->description = $description;
+    }
     //GET
     public function get_timeStamp(){
         return $this->timeStamp;
@@ -50,6 +55,9 @@ class Media
 
     public function get_URL(){
         return $this->URL;
+    }
+    public function get_desc(){
+        return $this->description;
     }
 
 
@@ -71,10 +79,10 @@ class Media
         
     }
     
-    public static function create_entry($type, $url, $title, $albumID, $authorID)
+    public static function create_entry($type, $url, $title, $albumID, $authorID, $description)
     {
         $TDG = mediaTDG::get_instance();
-        $res = $TDG->add_media($type, $url, $title, $albumID, $authorID);
+        $res = $TDG->add_media($type, $url, $title, $albumID, $authorID, $description);
         return $res;
     }
 
@@ -101,6 +109,7 @@ class Media
         $this->set_albumID($res["albumID"]);
         $this->set_URL($res["URL"]);
         $this->set_timeStamp($res["timeStamp"]);
+        $this->set_desc($res["description"]);
 
         return $res;
     }
