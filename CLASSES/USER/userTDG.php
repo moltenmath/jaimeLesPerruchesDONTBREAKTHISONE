@@ -256,7 +256,7 @@ class UserTDG extends DBAO{
         try{
             $conn = $this->connect();
             $tableName = $this->tableName;
-            $query = "SELECT * FROM $tableName WHERE username LIKE username :nom";
+            $query = "SELECT * FROM $tableName WHERE username LIKE :nom";
             $stmt = $conn->prepare($query);
             $recherche = '%'.$name.'%';
             $stmt->bindParam(':nom', $recherche);
@@ -271,6 +271,7 @@ class UserTDG extends DBAO{
         }
         //fermeture de connection PDO
         $conn = null;
+
         return $result;
     }
 }

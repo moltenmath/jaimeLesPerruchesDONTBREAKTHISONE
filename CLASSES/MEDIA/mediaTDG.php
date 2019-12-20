@@ -173,13 +173,13 @@ class mediaTDG extends DBAO{
     {
         try{
             $conn = $this->connect();
-            $query = "SELECT * FROM ". $this->tableName ." WHERE TITLE LIKE :recherche";
+            $query = "SELECT * FROM ". $this->tableName ." WHERE title LIKE :rechercher";
             $stmt = $conn->prepare($query);
             $rechercher = '%'.$rechercher.'%';
-            $stmt->bindParam(':recherche', $rechercher);
+            $stmt->bindParam(':rechercher', $rechercher);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetch();
+            $result = $stmt->fetchAll();
         }
 
         catch(PDOException $e)

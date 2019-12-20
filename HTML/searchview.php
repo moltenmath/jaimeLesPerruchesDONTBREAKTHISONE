@@ -11,7 +11,7 @@
   echo "<h1 class='my-4'>Search results for user:</h1>";
 
   foreach($userListe as $user){
-    $user->display_user();
+   $user->display_user();
   }
 
 
@@ -19,7 +19,7 @@
   echo "<h1 class='my-4'>Search results for album:</h1>";
 
   foreach($albumListe as $album){
-    $user->display_album();
+    $album->display_album();
   }
 
 

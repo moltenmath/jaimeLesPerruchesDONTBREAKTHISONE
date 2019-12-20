@@ -168,13 +168,10 @@ class Media
 
     public static function search_media($recherche)
     {
-        $TDG = new mediaTDG();
-        $res = $TDG->search_media($recherche);
-        $TDG = null;
-       
-
-        return $res;
-
+        
+        $TDG = mediaTDG::get_instance();
+        $TDG->search_media($recherche);
+        
     }
 
 }
