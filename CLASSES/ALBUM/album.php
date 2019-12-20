@@ -188,5 +188,4 @@ class Album{
         
         $mediaTDG->rm_media_by_albumID($albumID);
     }
-
 }
