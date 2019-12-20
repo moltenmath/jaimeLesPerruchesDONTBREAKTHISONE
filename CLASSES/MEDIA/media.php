@@ -67,6 +67,8 @@ class Media
         $timeStamp = $this->timeStamp;
 
         include __DIR__ . "/../../Templates/mediaTemplate.php";
+
+        
     }
     
     public static function create_entry($type, $url, $title, $albumID, $authorID)

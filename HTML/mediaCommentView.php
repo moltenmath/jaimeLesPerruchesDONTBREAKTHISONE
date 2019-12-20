@@ -5,8 +5,7 @@
 
         <form method="post" action="./DOMAINLOGIC/mediaComment.dom.php">
             <textarea name="comment" id="comment" rows="10" cols="50" style="display:inline-block; ">
-                //fill this with a comment if applicable (send a commentID through a get ben batard tbnk)
-            
+            test            
             </textarea>
             <button class="btn btn-success" type="submit">Comment</button>
         </form>
